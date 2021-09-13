@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballStatsApplication.BL", "FootballStatsApplication.BL\FootballStatsApplication.BL.csproj", "{2192978A-A64E-434A-81C4-2B00EE4BE81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStatsApplication.WebUI", "FootballStatsApplication.WebUI\FootballStatsApplication.WebUI.csproj", "{A79991ED-58E8-442F-B6DE-D3B16C354784}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2192978A-A64E-434A-81C4-2B00EE4BE81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2192978A-A64E-434A-81C4-2B00EE4BE81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2192978A-A64E-434A-81C4-2B00EE4BE81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2192978A-A64E-434A-81C4-2B00EE4BE81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD7F08EF-97E8-4738-B492-3F691CA5C722}
+	EndGlobalSection
+EndGlobal
