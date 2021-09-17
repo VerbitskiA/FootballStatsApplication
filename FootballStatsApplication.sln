@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballStatsApplication.BL", "FootballStatsApplication.BL\FootballStatsApplication.BL.csproj", "{2192978A-A64E-434A-81C4-2B00EE4BE81B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStatsApplication.WebUI", "FootballStatsApplication.WebUI\FootballStatsApplication.WebUI.csproj", "{A79991ED-58E8-442F-B6DE-D3B16C354784}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballStatsApplication.WebUI", "FootballStatsApplication.WebUI\FootballStatsApplication.WebUI.csproj", "{A79991ED-58E8-442F-B6DE-D3B16C354784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballStatsApplication.DAL", "FootballStatsApplication.DAL\FootballStatsApplication.DAL.csproj", "{D4EA2774-9CDC-4952-8D8E-A2BF8F61EDC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A79991ED-58E8-442F-B6DE-D3B16C354784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EA2774-9CDC-4952-8D8E-A2BF8F61EDC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EA2774-9CDC-4952-8D8E-A2BF8F61EDC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EA2774-9CDC-4952-8D8E-A2BF8F61EDC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EA2774-9CDC-4952-8D8E-A2BF8F61EDC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
