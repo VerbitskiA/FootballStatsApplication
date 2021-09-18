@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FootballStatsApplication.DAL.Entities
 {
-    class Team
+    public class Team
     {
         public Guid Id { get; set; }
         public string TeamName { get; set; }

@@ -4,10 +4,9 @@ using System.Text;
 
 namespace FootballStatsApplication.DAL.Entities
 {
-    class Place
+    public class Place
     {
         public Guid Id { get; set; }
-
         public string PlaceName { get; set; }
     }
 }

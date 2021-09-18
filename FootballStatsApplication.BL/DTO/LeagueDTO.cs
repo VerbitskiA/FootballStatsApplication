@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FootballStatsApplication.DAL.Entities
+namespace FootballStatsApplication.BL.DTO
 {
-    public class League
+    public class LeagueDTO
     {
         public Guid Id { get; set; }
 

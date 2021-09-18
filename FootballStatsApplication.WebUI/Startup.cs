@@ -1,3 +1,6 @@
+using FootballStatsApplication.BL.Interfaces;
+using FootballStatsApplication.BL.Services;
+using FootballStatsApplication.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +19,9 @@ namespace FootballStatsApplication.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ILeagueService, LeagueService>();
+            services.AddScoped<IUnitOfWork, EFUnitOfWork>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,10 +36,10 @@ namespace FootballStatsApplication.WebUI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    );
             });
         }
     }

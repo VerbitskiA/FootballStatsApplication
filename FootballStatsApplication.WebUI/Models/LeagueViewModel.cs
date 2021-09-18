@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FootballStatsApplication.DAL.Entities
+namespace FootballStatsApplication.WebUI.Models
 {
-    public class League
+    public class LeagueViewModel
     {
         public Guid Id { get; set; }
 
