@@ -20,6 +20,8 @@ namespace FootballStatsApplication.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<ILeagueService, LeagueService>();
+            services.AddTransient<IPlaceService, PlaceService>();
+            services.AddTransient<IPlayerService, PlayerService>();
             services.AddScoped<IUnitOfWork, EFUnitOfWork>();
             services.AddMvc();
         }

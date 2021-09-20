@@ -17,6 +17,18 @@ namespace FootballStatsApplication.BL.Services
         {
             db = unitOfWork;
         }
+
+        public void CreateLeague(LeagueDTO leagueDto)
+        {            
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<LeagueDTO, League>()).CreateMapper();
+
+            League league = mapper.Map<LeagueDTO,League>(leagueDto);
+
+            db.Leagues.Create(league);
+            db.Save();
+        }
+
+
         public void Dispose()
         {
             db.Dispose();

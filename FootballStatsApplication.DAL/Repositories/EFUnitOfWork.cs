@@ -10,11 +10,15 @@ namespace FootballStatsApplication.DAL.Repositories
     {
         private FootballStatsApplicationContext _db;
         private LeagueRepository _leagueRepository;
+        private PlayerRepository _playerRepository;
+        private PlaceRepository _placeRepository;
+        private MatchRepository _matchRepository;
 
         public EFUnitOfWork()
         {
             _db = new FootballStatsApplicationContext();
         }
+
         public IRepository<League> Leagues
         {
             get
@@ -24,6 +28,42 @@ namespace FootballStatsApplication.DAL.Repositories
                     _leagueRepository = new LeagueRepository(_db);
                 }
                 return _leagueRepository;
+            }
+        }
+
+        public IRepository<Player> Players
+        {
+            get
+            {
+                if (_playerRepository is null)
+                {
+                    _playerRepository = new PlayerRepository(_db);
+                }
+                return _playerRepository;
+            }
+        }
+
+        public IRepository<Place> Places
+        {
+            get
+            {
+                if (_placeRepository is null)
+                {
+                    _placeRepository = new PlaceRepository(_db);
+                }
+                return _placeRepository;
+            }
+        }
+
+        public IRepository<Match> Matches
+        {
+            get
+            {
+                if (_matchRepository is null)
+                {
+                    _matchRepository = new MatchRepository(_db);
+                }
+                return _matchRepository;
             }
         }
 

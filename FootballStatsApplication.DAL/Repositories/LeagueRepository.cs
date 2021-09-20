@@ -8,12 +8,14 @@ using System.Text;
 
 namespace FootballStatsApplication.DAL.Repositories
 {
+    //TODO #1: добавить асинхронность к обращения к БД.
+    //https://medium.com/swlh/building-a-nice-multi-layer-net-core-3-api-c68a9ef16368
     class LeagueRepository : IRepository<League>
     {
         private FootballStatsApplicationContext _db;
         public LeagueRepository(FootballStatsApplicationContext db)
         {
-            this._db = db;
+            _db = db;
         }
         public void Create(League item)
         {
@@ -23,6 +25,7 @@ namespace FootballStatsApplication.DAL.Repositories
         public void Delete(Guid id)
         {
             League league = _db.Leagues.Find(id);
+
             if (league != null)
             {
                 _db.Leagues.Remove(league);

@@ -17,6 +17,7 @@ namespace FootballStatsApplication.DAL.Entities
         
         [ForeignKey("ResultId")]
         public Result Result { get; set; }
+        public ICollection<Score> Scores { get; set; }
         public int AutogoalsTeamRed { get; set; }
         public int AutogoalsTeamBlue { get; set; }
 

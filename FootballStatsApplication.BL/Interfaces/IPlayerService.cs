@@ -5,12 +5,9 @@ using System.Text;
 
 namespace FootballStatsApplication.BL.Interfaces
 {
-    public interface ILeagueService
+    public interface IPlayerService
     {
-        IEnumerable<LeagueDTO> GetLeagues();
-
-        void CreateLeague(LeagueDTO league);
-
+        IEnumerable<PlayerDTO> GetPlayers();
         void Dispose();
     }
 }

@@ -8,6 +8,13 @@ namespace FootballStatsApplication.DAL.Repositories
     public interface IUnitOfWork : IDisposable
     {
         IRepository<League> Leagues { get; }
+
+        IRepository<Player> Players { get; }
+
+        IRepository<Place> Places { get; }
+
+        IRepository<Match> Matches { get; }
+
         void Save();
     }
 }
