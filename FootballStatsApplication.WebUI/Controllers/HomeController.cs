@@ -14,12 +14,12 @@ namespace FootballStatsApplication.WebUI.Controllers
     {
         ILeagueService _leagueService;
 
-
         public HomeController(ILeagueService leagueService)
         {
             _leagueService = leagueService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             IEnumerable<LeagueDTO> leagueDTOs = _leagueService.GetLeagues();
@@ -31,6 +31,42 @@ namespace FootballStatsApplication.WebUI.Controllers
             return View(leagues);
         }
 
+        [HttpGet]
+        public IActionResult ScoreTable()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult PrepareToMatch()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddMatch()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Statistics()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Archive()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Settings()
+        {
+            return View();
+        }
+        #region test methods
         [HttpGet]
         public IActionResult CreateLeague()
         {
@@ -51,5 +87,6 @@ namespace FootballStatsApplication.WebUI.Controllers
             
             return RedirectToAction("Index");
         }
+        #endregion
     }
 }
