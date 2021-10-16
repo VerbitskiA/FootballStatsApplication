@@ -1,6 +1,7 @@
 using FootballStatsApplication.BL.Interfaces;
 using FootballStatsApplication.BL.Services;
 using FootballStatsApplication.DAL.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,6 +20,11 @@ namespace FootballStatsApplication.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                   .AddCookie(options => //CookieAuthenticationOptions
+                {
+                       options.LoginPath = new PathString("/Auth/Index");
+                   });
             services.AddTransient<ILeagueService, LeagueService>();
             services.AddTransient<IPlaceService, PlaceService>();
             services.AddTransient<IPlayerService, PlayerService>();
@@ -32,10 +38,11 @@ namespace FootballStatsApplication.WebUI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }            
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseAuthentication();    // аутентификация
+            app.UseAuthorization();     // авторизация
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

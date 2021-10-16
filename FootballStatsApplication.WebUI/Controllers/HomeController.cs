@@ -2,6 +2,7 @@
 using FootballStatsApplication.BL.DTO;
 using FootballStatsApplication.BL.Interfaces;
 using FootballStatsApplication.WebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace FootballStatsApplication.WebUI.Controllers
             _leagueService = leagueService;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Index()
         {

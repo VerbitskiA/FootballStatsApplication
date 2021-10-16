@@ -36,35 +36,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Settings">Настройки</a>
                         </li>
                         <li class="nav-item">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                Launch static backdrop modal
-                            </button>
+                            @User.Identity.Name
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="LogOut">Сменить лигу</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header> 
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    лиги
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container">
         <main role="main" class="pb-3">
