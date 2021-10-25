@@ -10,6 +10,7 @@ namespace FootballStatsApplication.DAL.EF
     {
         public FootballStatsApplicationContext()
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         public DbSet<League> Leagues { get; set; }
@@ -22,7 +23,7 @@ namespace FootballStatsApplication.DAL.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
+            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=fsapp;Trusted_Connection=True;");
             optionsBuilder.UseInMemoryDatabase(databaseName: "FsDbInMemory");
         }
 
@@ -43,16 +44,16 @@ namespace FootballStatsApplication.DAL.EF
             modelBuilder.Entity<Player>().HasData(
                 new Player[]
                 {
-                new Player { Id=new Guid("62A98A9A-2D3E-404A-8377-3E1A98491F88"), FirstName = "Александр", SecondName = "Вербицкий", BirthDate = new DateTime(1995,07,17), FootStyle = "Правая", Avatar="Аватарка1"},
-                new Player { Id=new Guid("04C09190-549B-414F-BA03-8A7A23F3E8D7"), FirstName = "Игорь", SecondName = "Кудряшов", BirthDate = new DateTime(1997,01,01), FootStyle = "Правая", Avatar="Аватарка2"},
-                new Player { Id=new Guid("D8786FBE-B69D-4458-9D9D-97EA5E5BBFF4"), FirstName = "Никита", SecondName = "Тимофеев", BirthDate = new DateTime(1989,02,01), FootStyle = "Левая", Avatar="Аватарка3"},
-                new Player { Id=new Guid("8DEFB759-1198-41CB-AD8B-BAC94CA575D4"), FirstName = "Дмитрий", SecondName = "Ткач", BirthDate = new DateTime(1997,01,01), FootStyle = "Правая", Avatar="Аватарка4"},
-                new Player { Id=new Guid("483D64E9-25AF-471A-B0FD-414C224B851E"), FirstName = "Игорь", SecondName = "Олесик", BirthDate = new DateTime(1997,01,02), FootStyle = "Правая", Avatar="Аватарка5"},
-                new Player { Id=new Guid("794B8848-60FC-4C73-92E8-84248193DEF8"), FirstName = "Александр", SecondName = "Сайко", BirthDate = new DateTime(1997,03,01), FootStyle = "Правая", Avatar="Аватарка6"},
-                new Player { Id=new Guid("68506FD3-F7C5-4ED1-8C9F-2D30AF9F305C"), FirstName = "Илья", SecondName = "Лавничук", BirthDate = new DateTime(1997,01,04), FootStyle = "Правая", Avatar="Аватарка7"},
-                new Player { Id=new Guid("9555B3F7-F288-44E5-8568-340E3761A7FC"), FirstName = "Артур", SecondName = "Поздняк", BirthDate = new DateTime(1997,01,05), FootStyle = "Левая", Avatar="Аватарка8"},
-                new Player { Id=new Guid("816B9432-B526-4975-9709-FB97EE852040"), FirstName = "Алексей", SecondName = "Соколов", BirthDate = new DateTime(1988,01,06), FootStyle = "Правая", Avatar="Аватарка9"},
-                new Player { Id=new Guid("A7ADBD2C-4C13-4530-88AA-1F4366816EBD"), FirstName = "Андрей", SecondName = "Насевич", BirthDate = new DateTime(1995,01,01), FootStyle = "Правая", Avatar="Аватарка10"}
+                new Player { Id=new Guid("62A98A9A-2D3E-404A-8377-3E1A98491F88"),LeagueId=new Guid("AC6773D0-17C7-4E94-BBDB-649CD88780C8"), FirstName = "Александр", SecondName = "Вербицкий", BirthDate = new DateTime(1995,07,17), FootStyle = "Правая", Avatar="Аватарка1"},
+                new Player { Id=new Guid("04C09190-549B-414F-BA03-8A7A23F3E8D7"),LeagueId=new Guid("AC6773D0-17C7-4E94-BBDB-649CD88780C8"),  FirstName = "Игорь", SecondName = "Кудряшов", BirthDate = new DateTime(1997,01,01), FootStyle = "Правая", Avatar="Аватарка2"},
+                new Player { Id=new Guid("D8786FBE-B69D-4458-9D9D-97EA5E5BBFF4"),LeagueId=new Guid("AC6773D0-17C7-4E94-BBDB-649CD88780C8"),  FirstName = "Никита", SecondName = "Тимофеев", BirthDate = new DateTime(1989,02,01), FootStyle = "Левая", Avatar="Аватарка3"},
+                new Player { Id=new Guid("8DEFB759-1198-41CB-AD8B-BAC94CA575D4"),LeagueId=new Guid("AC6773D0-17C7-4E94-BBDB-649CD88780C8"),  FirstName = "Дмитрий", SecondName = "Ткач", BirthDate = new DateTime(1997,01,01), FootStyle = "Правая", Avatar="Аватарка4"},
+                new Player { Id=new Guid("483D64E9-25AF-471A-B0FD-414C224B851E"),LeagueId=new Guid("AC6773D0-17C7-4E94-BBDB-649CD88780C8"),  FirstName = "Игорь", SecondName = "Олесик", BirthDate = new DateTime(1997,01,02), FootStyle = "Правая", Avatar="Аватарка5"},
+                new Player { Id=new Guid("794B8848-60FC-4C73-92E8-84248193DEF8"),LeagueId=new Guid("187AC176-CB28-4456-9AB5-D3A1EF370542"),  FirstName = "Александр", SecondName = "Сайко", BirthDate = new DateTime(1997,03,01), FootStyle = "Правая", Avatar="Аватарка6"},
+                new Player { Id=new Guid("68506FD3-F7C5-4ED1-8C9F-2D30AF9F305C"),LeagueId=new Guid("187AC176-CB28-4456-9AB5-D3A1EF370542"), FirstName = "Илья", SecondName = "Лавничук", BirthDate = new DateTime(1997,01,04), FootStyle = "Правая", Avatar="Аватарка7"},
+                new Player { Id=new Guid("9555B3F7-F288-44E5-8568-340E3761A7FC"),LeagueId=new Guid("187AC176-CB28-4456-9AB5-D3A1EF370542"), FirstName = "Артур", SecondName = "Поздняк", BirthDate = new DateTime(1997,01,05), FootStyle = "Левая", Avatar="Аватарка8"},
+                new Player { Id=new Guid("816B9432-B526-4975-9709-FB97EE852040"),LeagueId=new Guid("187AC176-CB28-4456-9AB5-D3A1EF370542"), FirstName = "Алексей", SecondName = "Соколов", BirthDate = new DateTime(1988,01,06), FootStyle = "Правая", Avatar="Аватарка9"},
+                new Player { Id=new Guid("A7ADBD2C-4C13-4530-88AA-1F4366816EBD"),LeagueId=new Guid("187AC176-CB28-4456-9AB5-D3A1EF370542"), FirstName = "Андрей", SecondName = "Насевич", BirthDate = new DateTime(1995,01,01), FootStyle = "Правая", Avatar="Аватарка10"}
                 });
         }
     }

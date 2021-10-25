@@ -7,6 +7,7 @@ namespace FootballStatsApplication.BL.DTO
     public class PlayerDTO
     {
         public Guid Id { get; set; }
+        public Guid LeagueId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public DateTime BirthDate { get; set; }

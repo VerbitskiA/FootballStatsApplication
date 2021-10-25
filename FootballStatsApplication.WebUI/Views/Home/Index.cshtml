@@ -1,11 +1,16 @@
-﻿@{    
+﻿@{
     ViewData["Title"] = "Главная страница";
 
 }
+@model List<PlayerViewModel>
 <p>Главная страница, здесь будет отображаться статистика по количеству лиг и игроков и матчей</p>
 
-    
-    
-    
-    
+@for (int i = 0; i < Model.Count; i++)
+{
+    <p>@Model[i].FirstName @Model[i].SecondName</p>
+
+}
+
+
+
 

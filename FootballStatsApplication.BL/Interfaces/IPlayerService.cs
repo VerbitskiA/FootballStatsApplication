@@ -8,6 +8,7 @@ namespace FootballStatsApplication.BL.Interfaces
     public interface IPlayerService
     {
         IEnumerable<PlayerDTO> GetPlayers();
+        IEnumerable<PlayerDTO> GetPlayersByLeague(string leagueName);
         void Dispose();
     }
 }

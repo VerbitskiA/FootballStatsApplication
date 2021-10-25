@@ -14,23 +14,25 @@ namespace FootballStatsApplication.WebUI.Controllers
     public class HomeController : Controller
     {
         ILeagueService _leagueService;
+        IPlayerService _playerService;
 
-        public HomeController(ILeagueService leagueService)
+        public HomeController(ILeagueService leagueService, IPlayerService playerService)
         {
             _leagueService = leagueService;
+            _playerService = playerService;
         }
 
         [Authorize]
         [HttpGet]
         public IActionResult Index()
         {
-            IEnumerable<LeagueDTO> leagueDTOs = _leagueService.GetLeagues();
+            IEnumerable<PlayerDTO> playerDTOs = _playerService.GetPlayersByLeague(User.Identity.Name);
 
-            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<LeagueDTO, LeagueViewModel>()).CreateMapper();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlayerDTO, PlayerViewModel>()).CreateMapper();
 
-            List<LeagueViewModel> leagues = mapper.Map<IEnumerable<LeagueDTO>, List<LeagueViewModel>>(leagueDTOs);
+            List<PlayerViewModel> players = mapper.Map<IEnumerable<PlayerDTO>, List<PlayerViewModel>>(playerDTOs);
 
-            return View(leagues);
+            return View(players);
         }
 
         [HttpGet]

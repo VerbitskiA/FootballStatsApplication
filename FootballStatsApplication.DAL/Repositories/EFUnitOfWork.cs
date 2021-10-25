@@ -31,7 +31,7 @@ namespace FootballStatsApplication.DAL.Repositories
             }
         }
 
-        public IRepository<Player> Players
+        public IPlayerRepository Players
         {
             get
             {

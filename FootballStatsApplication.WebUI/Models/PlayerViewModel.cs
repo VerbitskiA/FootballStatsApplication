@@ -8,6 +8,7 @@ namespace FootballStatsApplication.WebUI.Models
     public class PlayerViewModel
     {
         public Guid Id { get; set; }
+        public Guid LeagueId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public DateTime BirthDate { get; set; }

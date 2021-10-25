@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace FootballStatsApplication.DAL.Entities
@@ -7,6 +8,10 @@ namespace FootballStatsApplication.DAL.Entities
     public class Player
     {
         public Guid Id { get; set; }
+        public Guid LeagueId { get; set; }
+
+        [ForeignKey("LeagueId")]
+        public League League { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public DateTime BirthDate { get; set; }

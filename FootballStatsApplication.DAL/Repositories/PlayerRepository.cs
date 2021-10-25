@@ -8,7 +8,7 @@ using System.Text;
 
 namespace FootballStatsApplication.DAL.Repositories
 {
-    class PlayerRepository : IRepository<Player>
+    class PlayerRepository : IPlayerRepository
     {
         private FootballStatsApplicationContext _db;
 
@@ -35,6 +35,11 @@ namespace FootballStatsApplication.DAL.Repositories
         public IEnumerable<Player> Find(Func<Player, bool> predicate)
         {
             return _db.Players.Where(predicate);
+        }
+
+        public IEnumerable<Player> GetPlayersByLeagueName(string leagueName)
+        {
+            return _db.Players.Include(u => u.League).Where(u => u.League.LeagueName == leagueName);
         }
 
         public IEnumerable<Player> GetAll()

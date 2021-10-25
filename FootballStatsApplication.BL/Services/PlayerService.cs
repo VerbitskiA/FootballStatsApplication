@@ -18,6 +18,13 @@ namespace FootballStatsApplication.BL.Services
             db = unitOfWork;
         }
 
+        public IEnumerable<PlayerDTO> GetPlayersByLeague(string leagueName)
+        {
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Player, PlayerDTO>()).CreateMapper();
+
+            return mapper.Map<IEnumerable<Player>, IEnumerable<PlayerDTO>>(db.Players.GetPlayersByLeagueName(leagueName));
+        }
+
         IEnumerable<PlayerDTO> IPlayerService.GetPlayers()
         {
             IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Player, PlayerDTO>()).CreateMapper();
@@ -29,5 +36,7 @@ namespace FootballStatsApplication.BL.Services
         {
             db.Dispose();
         }
+
+        
     }
 }

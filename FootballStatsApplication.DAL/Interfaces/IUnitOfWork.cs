@@ -9,7 +9,7 @@ namespace FootballStatsApplication.DAL.Repositories
     {
         IRepository<League> Leagues { get; }
 
-        IRepository<Player> Players { get; }
+        IPlayerRepository Players { get; }
 
         IRepository<Place> Places { get; }
 
