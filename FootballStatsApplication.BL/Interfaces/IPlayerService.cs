@@ -9,6 +9,7 @@ namespace FootballStatsApplication.BL.Interfaces
     {
         IEnumerable<PlayerDTO> GetPlayers();
         IEnumerable<PlayerDTO> GetPlayersByLeague(string leagueName);
+        void CreatePlayer(PlayerDTO playerDTO);
         void Dispose();
     }
 }

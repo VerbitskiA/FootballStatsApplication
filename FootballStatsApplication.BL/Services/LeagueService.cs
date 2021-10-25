@@ -34,6 +34,13 @@ namespace FootballStatsApplication.BL.Services
             db.Dispose();
         }
 
+        public LeagueDTO GetLeagueByName(string leagueName)
+        {
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<League, LeagueDTO>()).CreateMapper();
+
+            return mapper.Map<League, LeagueDTO>(db.Leagues.GetOneByLeagueName(leagueName));
+        }
+
         public IEnumerable<LeagueDTO> GetLeagues()
         {
             IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<League, LeagueDTO>()).CreateMapper();

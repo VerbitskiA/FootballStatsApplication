@@ -10,7 +10,7 @@ namespace FootballStatsApplication.DAL.EF
     {
         public FootballStatsApplicationContext()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         public DbSet<League> Leagues { get; set; }

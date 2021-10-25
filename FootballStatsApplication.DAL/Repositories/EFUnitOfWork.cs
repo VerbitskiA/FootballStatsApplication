@@ -1,5 +1,6 @@
 ﻿using FootballStatsApplication.DAL.EF;
 using FootballStatsApplication.DAL.Entities;
+using FootballStatsApplication.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,7 @@ namespace FootballStatsApplication.DAL.Repositories
             _db = new FootballStatsApplicationContext();
         }
 
-        public IRepository<League> Leagues
+        public ILeagueRepository Leagues
         {
             get
             {

@@ -1,2 +1,28 @@
-﻿<div>Страница настроек</div>
-<p>Управлять игроками:</p>
+﻿@model CreatePlayerModel
+<div>Страница настроек</div>
+<div>Управлять игроками:</div>
+@using (Html.BeginForm("AddPlayer", "Settings", FormMethod.Post))
+{
+    @Html.LabelFor(u => u.FirstName, "FirstName")
+    <br />
+    @Html.EditorFor(u => u.FirstName)
+    <br />
+    @Html.LabelFor(u => u.SecondName, "SecondName")
+    <br />
+    @Html.EditorFor(u => u.SecondName)
+    <br />
+    @Html.LabelFor(u => u.BirthDate, "BirthDate")
+    <br />
+    @Html.EditorFor(u => u.BirthDate)
+    <br />
+    @Html.LabelFor(u => u.FootStyle, "FootStyle")
+    <br />
+    @Html.EditorFor(u => u.FootStyle)
+    <br />
+    @Html.LabelFor(u => u.Avatar, "Avatar")
+    <br />
+    @Html.EditorFor(u => u.Avatar)
+    <br />
+    <br />
+    <input type="submit" value="Добавить" />
+}

@@ -2,6 +2,7 @@
 using FootballStatsApplication.BL.DTO;
 using FootballStatsApplication.BL.Interfaces;
 using FootballStatsApplication.WebUI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,15 @@ namespace FootballStatsApplication.WebUI.Controllers
 
         IPlaceService _placeService;
 
-        public SettingsController(IPlaceService placeService, IPlayerService playerService)
+        ILeagueService _leagueService;
+
+        public SettingsController(IPlaceService placeService, IPlayerService playerService, ILeagueService leagueService)
         {
             _playerService = playerService;
 
             _placeService = placeService;
+
+            _leagueService = leagueService;
         }
         public IActionResult GetPlayers()
         {
@@ -41,6 +46,25 @@ namespace FootballStatsApplication.WebUI.Controllers
             List<PlacesViewModel> places = mapper.Map<IEnumerable<PlaceDTO>, List<PlacesViewModel>>(placeDTOs);
 
             return View(places);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult AddPlayer(CreatePlayerModel player)
+        {   
+            PlayerDTO playerForCreating = new PlayerDTO
+            {
+                FirstName = player.FirstName,
+                SecondName = player.SecondName,
+                BirthDate = player.BirthDate,
+                FootStyle = player.FootStyle,
+                Avatar = player.Avatar,
+                LeagueId = _leagueService.GetLeagueByName(User.Identity.Name).Id
+            };
+
+            _playerService.CreatePlayer(playerForCreating);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

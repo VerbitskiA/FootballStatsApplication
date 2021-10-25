@@ -9,6 +9,8 @@ namespace FootballStatsApplication.BL.Interfaces
     {
         IEnumerable<LeagueDTO> GetLeagues();
 
+        LeagueDTO GetLeagueByName(string leagueName);
+
         void CreateLeague(LeagueDTO league);
 
         void Dispose();

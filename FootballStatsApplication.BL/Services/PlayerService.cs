@@ -25,6 +25,16 @@ namespace FootballStatsApplication.BL.Services
             return mapper.Map<IEnumerable<Player>, IEnumerable<PlayerDTO>>(db.Players.GetPlayersByLeagueName(leagueName));
         }
 
+        public void CreatePlayer(PlayerDTO playerDTO)
+        {
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlayerDTO, Player>()).CreateMapper();
+
+            Player player = mapper.Map<PlayerDTO, Player>(playerDTO);
+
+            db.Players.Create(player);
+            db.Save();
+        }
+
         IEnumerable<PlayerDTO> IPlayerService.GetPlayers()
         {
             IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Player, PlayerDTO>()).CreateMapper();

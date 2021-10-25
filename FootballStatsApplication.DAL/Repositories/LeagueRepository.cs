@@ -1,5 +1,6 @@
 ﻿using FootballStatsApplication.DAL.EF;
 using FootballStatsApplication.DAL.Entities;
+using FootballStatsApplication.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace FootballStatsApplication.DAL.Repositories
 {
     //TODO #1: добавить асинхронность к обращения к БД.
     //https://medium.com/swlh/building-a-nice-multi-layer-net-core-3-api-c68a9ef16368
-    class LeagueRepository : IRepository<League>
+    class LeagueRepository : ILeagueRepository
     {
         private FootballStatsApplicationContext _db;
         public LeagueRepository(FootballStatsApplicationContext db)
@@ -45,6 +46,11 @@ namespace FootballStatsApplication.DAL.Repositories
         public League GetOneById(Guid id)
         {
             return _db.Leagues.Find(id);
+        }
+
+        public League GetOneByLeagueName(string leagueName)
+        {
+            return _db.Leagues.Where(u => u.LeagueName == leagueName).First();
         }
 
         public void Update(League item)
